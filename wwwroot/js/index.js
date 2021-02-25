@@ -4,11 +4,12 @@ var user = {};
 //-------------------------
 //dataUser = dados do usuário
 function addLine(dataUser) {
+
+    console.log(dataUser);
+
     var tr = document.createElement("tr");
-
-
     tr.innerHTML =
-    `
+        `
 
         <td><img src="dist/img/user1-128x128.jpg" alt="User Image" class="img-circle img-sm"></td>
         <td>${dataUser.name}</td>
@@ -45,7 +46,20 @@ document.getElementById("form-user-create").addEventListener("submit", () => {
 
     });
 
-    addLine(user);
+    //
+    var objectUser = new User(
+        user.name,
+        user.gender,
+        user.birth,
+        user.country,
+        user.email,
+        user.password,
+        user.photo,
+        user.admin
+        );
+
+    //addLine(user); //passando json
+    addLine(objectUser); //passando objeto
 
 });
 
